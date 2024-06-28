@@ -1,19 +1,55 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Index from '@/views/Index.vue'
+import Register from '@/views/Register.vue'
+import Login from '@/views/Login.vue'
+import UserIndex from '@/views/UserIndex.vue'
+import SomeBooks from '@/views/Books/SomeBooks.vue'
+import BookContent from '@/views/Books/BookContent.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/login',
+    name: 'LoginView',
+    component: Login
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/',
+    component: Index
+  },
+  {
+    path: '/index',
+    name: 'IndexView',
+    component: Index
+  },
+  {
+    path: '/index/:username',
+    name: 'UserIndex',
+    component: UserIndex
+  },
+  {
+    path: '/register',
+    name: 'RegisterView',
+    component: Register
+  },
+  {
+    path: '/AllBooks/:username',
+    name: 'UserBookView',
+    component: SomeBooks
+  },
+  {
+    path: '/AllBooks',
+    name: 'BookView',
+    component: SomeBooks
+  },
+  {
+    path: '/Books/:id',
+    name: 'BookDetail',
+    component: BookContent
+  },
+  {
+    path: '/Books/:id/:username',
+    name: 'BooksView',
+    component: BookContent
   }
 ]
 
